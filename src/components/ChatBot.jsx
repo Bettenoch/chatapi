@@ -29,7 +29,8 @@ const Chatbot = () => {
       );
 
       const botText = response.data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm unable to respond.";
-      setMessages(prev => [...prev, userMessage, { text: botText, sender: 'bot' }]);
+      // setMessages(prev => [...prev, userMessage, { text: botText, sender: 'bot' }]);
+      setMessages(prev => [...prev, { text: botText, sender: 'bot' }]);
     } catch (error) {
       console.error("Error:", error);
       setMessages(prev => [...prev, userMessage, { text: "Error fetching response.", sender: 'bot' }]);
